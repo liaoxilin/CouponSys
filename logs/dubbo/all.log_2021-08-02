@@ -1,0 +1,9 @@
+2021-08-02 16:54:11  INFO LoggerFactory:? - using logger: org.apache.dubbo.common.logger.log4j.Log4jLoggerAdapter
+2021-08-02 16:54:11  INFO ServiceAnnotationBeanPostProcessor:194 -  [DUBBO] BeanNameGenerator bean can't be found in BeanFactory with name [org.springframework.context.annotation.internalConfigurationBeanNameGenerator], dubbo version: 2.7.2, current host: 192.168.153.1
+2021-08-02 16:54:11  INFO ServiceAnnotationBeanPostProcessor:196 -  [DUBBO] BeanNameGenerator will be a instance of org.springframework.context.annotation.AnnotationBeanNameGenerator , it maybe a potential problem on bean name generation., dubbo version: 2.7.2, current host: 192.168.153.1
+2021-08-02 16:54:11  WARN ServiceAnnotationBeanPostProcessor:159 -  [DUBBO] No Spring Bean annotating Dubbo's @Service was found under package[om.xdclass.userapp.service.dubbo], dubbo version: 2.7.2, current host: 192.168.153.1
+2021-08-02 16:54:12 ERROR DruidAbstractDataSource:994 - maxIdle is deprecated
+2021-08-02 16:54:14  INFO DruidDataSource:847 - {dataSource-1} inited
+2021-08-02 16:54:33  INFO DubboShutdownHook:58 -  [DUBBO] Run shutdown hook now., dubbo version: 2.7.2, current host: 192.168.153.1
+2021-08-02 16:54:33  INFO AbstractRegistryFactory:68 -  [DUBBO] Close all registries [], dubbo version: 2.7.2, current host: 192.168.153.1
+2021-08-02 16:54:33  INFO DruidDataSource:1608 - {dataSource-1} closed

@@ -1,0 +1,79 @@
+server:
+   port: 8090
+druid:
+  allow:
+     ip: 127.0.0.1
+  login:
+     user_name: root
+     password: root
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/coupon?autoReconnect=true&useUnicode=true&characterEncoding=UTF-8&useSSL=false
+    username: root
+    password: 123456
+    type: com.alibaba.druid.pool.DruidDataSource
+    initial-size: 1
+    min-idle: 1
+    max-idle: 5
+    max-wait-millis: 60000
+    timeBetweenEvictionRunsMillis: 60000
+      # 配置一个连接在池中最小生存的时间，单位是毫秒
+    minEvictableIdleTimeMillis: 300000
+    validationQuery: SELECT 1 FROM DUAL
+    testWhileIdle: true
+    testOnBorrow: true
+    testOnReturn: false
+    maxPoolPreparedStatementPerConnectionSize: 20
+      # 配置监控统计拦截的filters，去掉后监控界面sql无法统计，'wall'用于防火墙
+    filters: stat,wall
+      # 通过connectProperties属性来打开mergeSql功能；慢SQL记录
+    connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000
+  main:
+    allow-bean-definition-overriding: true
+  redis:
+    host: 192.168.153.122
+    port: 6379
+dubbo:
+  application:
+    name: user-text
+  # 使⽤ zookeeper 注册中⼼暴露服务，注意要先开启 zookeeper
+  # 注册中⼼id
+  registry:
+    id: zookeeper-registry
+    # 注册中⼼协议
+    protocol: zookeeper
+     # 注册中⼼地址
+    address: 192.168.153.122:2181
+  # dubbo协议在20880端⼝暴露服务
+  # 协议名称
+  protocol:
+    name: dubbo
+    # 协议端⼝
+    port: 20883
+    # 协议访问log
+    accesslog: dubbo-access.log
+  # 重试次数
+  provider:
+    retries: 0
+    # 超时时间
+    timeout: 3000
+  # 注册监控中⼼
+  monitor:
+    protocol: registry
+
+logging:
+  name: xdclass-coupon
+  config: classpath:logback-spring.xml
+  level:
+    root: info
+
+rocketmq:
+  #消费者配置
+  consumer:
+    pay:
+      groupName: PayResult
+      namesrvAddr: 192.168.153.122:9876
+    order:
+      groupName: SaveOrder
+      namesrvAddr: 192.168.153.122:9876

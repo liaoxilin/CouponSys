@@ -1,0 +1,27 @@
+dubbo:
+  application:
+    name: user-text
+  # 使⽤ zookeeper 注册中⼼暴露服务，注意要先开启 zookeeper
+  # 注册中⼼id
+  registry:
+    id: zookeeper-registry
+    # 注册中⼼协议
+    protocol: zookeeper
+    # 注册中⼼地址
+    address: 192.168.153.122:2181
+  # dubbo协议在20880端⼝暴露服务
+  # 协议名称
+  protocol:
+    name: dubbo
+    # 协议端⼝
+    port: 20882
+    # 协议访问log
+    accesslog: dubbo-access.log
+  # 重试次数
+  provider:
+    retries: 0
+    # 超时时间
+    timeout: 3000
+  # 注册监控中⼼
+  monitor:
+    protocol: registry
